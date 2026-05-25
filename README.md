@@ -28,25 +28,25 @@ Everything is generated dynamically using native Power BI functionality.
 
 ### UK Commercial EPC
 
-![UK Commercial EPC](examples/uk_commercial_EPC.png)
+![UK Commercial EPC](examples/uk_commercial_epc.png)
 
 ---
 
 ### Scotland Commercial EPC
 
-![Scotland Commercial EPC](examples/scotland_commercial_EPC.png)
+![Scotland Commercial EPC](examples/scotland_commercial_epc.png)
 
 ---
 
 ### UK Residential EPC
 
-![UK Residential EPC](examples/uk_residential_EPC.png)
+![UK Residential EPC](examples/uk_residential_epc.png)
 
 ---
 
 ### Scotland Residential EPC
 
-![Scotland Residential EPC](examples/scotland_residential_EPC.png)
+![Scotland Residential EPC](examples/scotland_residential_epc.png)
 
 ---
 
