@@ -1,0 +1,118 @@
+createOrReplace
+
+    /// Creates a Scottish residential EPC SVG rating graphic.
+    function 'MartynBooth.EPC.ResidentialScotlandSVG' = ```
+    (
+        score: NUMERIC
+    ) =>
+
+    VAR ScoreRounded =
+        ROUND ( score, 0 )
+
+    VAR Rating =
+        SWITCH (
+            TRUE (),
+            ScoreRounded >= 92, "A",
+            ScoreRounded >= 81, "B",
+            ScoreRounded >= 69, "C",
+            ScoreRounded >= 55, "D",
+            ScoreRounded >= 39, "E",
+            ScoreRounded >= 21, "F",
+            "G"
+        )
+
+    VAR MarkerY =
+        SWITCH (
+            Rating,
+            "A", 133,
+            "B", 211,
+            "C", 289,
+            "D", 367,
+            "E", 445,
+            "F", 523,
+            601
+        )
+
+    VAR MarkerFill =
+        SWITCH (
+            Rating,
+            "A", "%2300842f",
+            "B", "%2330aa1f",
+            "C", "%23a2cf38",
+            "D", "%23fff200",
+            "E", "%23f7b21b",
+            "F", "%23f46d1f",
+            "%23ed1c24"
+        )
+
+    VAR LabelText =
+        FORMAT ( ScoreRounded, "0" )
+
+    RETURN
+        IF (
+            ISBLANK ( score ),
+            BLANK (),
+            "data:image/svg+xml;utf8," &
+            "<svg width='1100' height='760' viewBox='0 0 1100 760' xmlns='http://www.w3.org/2000/svg'>" &
+
+                /* Top heading */
+                "<text x='40' y='50' font-family='sans-serif' font-size='28' font-weight='normal' fill='%23000000'>" &
+                    "Very energy efficient - lower running costs" &
+                "</text>" &
+
+                /* Rating bars */
+                "<rect x='25' y='85' width='260' height='68' fill='%2300842f' />" &
+                "<rect x='25' y='165' width='355' height='68' fill='%2330aa1f' />" &
+                "<rect x='25' y='245' width='450' height='68' fill='%23a2cf38' />" &
+                "<rect x='25' y='325' width='545' height='68' fill='%23fff200' />" &
+                "<rect x='25' y='405' width='640' height='68' fill='%23f7b21b' />" &
+                "<rect x='25' y='485' width='735' height='68' fill='%23f46d1f' />" &
+                "<rect x='25' y='565' width='830' height='68' fill='%23ed1c24' />" &
+
+                /* Range labels */
+                "<text font-family='sans-serif' font-size='26' font-weight='bold'>" &
+                    "<tspan x='40' y='126' fill='white'>(92 plus)</tspan>" &
+                    "<tspan x='40' y='206' fill='white'>(81-91)</tspan>" &
+                    "<tspan x='40' y='286' fill='%23000000'>(69-80)</tspan>" &
+                    "<tspan x='40' y='366' fill='%23000000'>(55-68)</tspan>" &
+                    "<tspan x='40' y='446' fill='%23000000'>(39-54)</tspan>" &
+                    "<tspan x='40' y='526' fill='%23000000'>(21-38)</tspan>" &
+                    "<tspan x='40' y='606' fill='%23000000'>(1-20)</tspan>" &
+                "</text>" &
+
+                /* Grade letters */
+                "<text font-family='sans-serif' font-size='74' font-weight='bold' fill='white' stroke='%23000000' stroke-width='2'>" &
+                    "<tspan x='220' y='145'>A</tspan>" &
+                    "<tspan x='315' y='225'>B</tspan>" &
+                    "<tspan x='410' y='305'>C</tspan>" &
+                    "<tspan x='505' y='385'>D</tspan>" &
+                    "<tspan x='600' y='465'>E</tspan>" &
+                    "<tspan x='695' y='545'>F</tspan>" &
+                    "<tspan x='790' y='625'>G</tspan>" &
+                "</text>" &
+
+                /* Current header */
+                "<text x='890' y='50' font-family='sans-serif' font-size='34' font-weight='bold' fill='%23000000'>Current</text>" &
+
+                /* Marker */
+                "<polygon points='880,360 915,325 1060,325 1060,395 915,395' fill='" &
+                    MarkerFill &
+                    "' transform='translate(0," &
+                    FORMAT ( MarkerY - 360, "0" ) &
+                    ")' />" &
+
+                /* Marker score */
+                "<text x='970' y='" &
+                    FORMAT ( MarkerY + 17, "0" ) &
+                    "' text-anchor='middle' font-family='sans-serif' font-size='54' font-weight='bold' fill='white' stroke='%23000000' stroke-width='2'>" &
+                    LabelText &
+                "</text>" &
+
+                /* Bottom heading */
+                "<text x='40' y='700' font-family='sans-serif' font-size='28' font-weight='normal' fill='%23000000'>" &
+                    "Not energy efficient - higher running costs" &
+                "</text>" &
+
+            "</svg>"
+        )
+    ```
