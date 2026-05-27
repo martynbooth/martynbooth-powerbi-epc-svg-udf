@@ -23,17 +23,17 @@ createOrReplace
 			    )
 			
 			VAR MarkerY =
-			    SWITCH (
-			        TRUE (),
-			        ScoreRounded < 0, 30,
-			        ScoreRounded <= 25, 75 + ( ScoreRounded / 25 ) * 50,
-			        ScoreRounded <= 50, 125 + ( ( ScoreRounded - 26 ) / 24 ) * 50,
-			        ScoreRounded <= 75, 175 + ( ( ScoreRounded - 51 ) / 24 ) * 50,
-			        ScoreRounded <= 100, 225 + ( ( ScoreRounded - 76 ) / 24 ) * 50,
-			        ScoreRounded <= 125, 275 + ( ( ScoreRounded - 101 ) / 24 ) * 50,
-			        ScoreRounded <= 150, 325 + ( ( ScoreRounded - 126 ) / 24 ) * 50,
-			        400
-			    )
+			SWITCH (
+				Rating,
+				"A+", 30,
+				"A", 100,
+				"B", 150,
+				"C", 200,
+				"D", 250,
+				"E", 300,
+				"F", 350,
+				400
+			)
 			
 			    VAR MarkerFill =
 			    SWITCH (
@@ -113,5 +113,4 @@ createOrReplace
 			            "</text>" &
 			        "</svg>"
 			    )
-		lineageTag: ef01e238-9929-4057-ae12-637a941525cc
-
+				
