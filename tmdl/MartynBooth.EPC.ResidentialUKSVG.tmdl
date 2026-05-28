@@ -49,55 +49,56 @@ createOrReplace
         FORMAT ( ScoreRounded, "0" ) & " " & Rating
 
     RETURN
-        IF (
-            ISBLANK ( score ),
-            BLANK (),
-            "data:image/svg+xml;utf8," &
-            "<svg width='1050' height='820' viewBox='0 0 1050 820' xmlns='http://www.w3.org/2000/svg'>" &
+        "data:image/svg+xml;utf8," &
+        "<svg width='1050' height='820' viewBox='0 0 1050 820' xmlns='http://www.w3.org/2000/svg'>" &
 
-                /* Headers */
-                "<text x='170' y='45' font-family='sans-serif' font-size='28' font-weight='bold' fill='%23000000'>Energy rating</text>" &
-                "<text x='870' y='45' font-family='sans-serif' font-size='28' font-weight='bold' fill='%23000000'>Current</text>" &
+            /* Headers */
+            "<text x='170' y='45' font-family='sans-serif' font-size='28' font-weight='bold' fill='%23000000'>Energy rating</text>" &
+            "<text x='870' y='45' font-family='sans-serif' font-size='28' font-weight='bold' fill='%23000000'>Current</text>" &
 
-                /* Score column */
-                "<rect x='20' y='60' width='115' height='100' fill='%2369c7b0' />" &
-                "<rect x='20' y='160' width='115' height='100' fill='%2375c58d' />" &
-                "<rect x='20' y='260' width='115' height='100' fill='%23b3d987' />" &
-                "<rect x='20' y='360' width='115' height='100' fill='%23f2de69' />" &
-                "<rect x='20' y='460' width='115' height='100' fill='%23efc093' />" &
-                "<rect x='20' y='560' width='115' height='100' fill='%23eba86d' />" &
-                "<rect x='20' y='660' width='115' height='100' fill='%23e46d85' />" &
+            /* Score column */
+            "<rect x='20' y='60' width='115' height='100' fill='%2369c7b0' />" &
+            "<rect x='20' y='160' width='115' height='100' fill='%2375c58d' />" &
+            "<rect x='20' y='260' width='115' height='100' fill='%23b3d987' />" &
+            "<rect x='20' y='360' width='115' height='100' fill='%23f2de69' />" &
+            "<rect x='20' y='460' width='115' height='100' fill='%23efc093' />" &
+            "<rect x='20' y='560' width='115' height='100' fill='%23eba86d' />" &
+            "<rect x='20' y='660' width='115' height='100' fill='%23e46d85' />" &
 
-                /* Rating bars */
-                "<rect x='135' y='60' width='190' height='100' fill='%2300c781' />" &
-                "<rect x='135' y='160' width='270' height='100' fill='%2324b954' />" &
-                "<rect x='135' y='260' width='350' height='100' fill='%2392d050' />" &
-                "<rect x='135' y='360' width='430' height='100' fill='%23ffe600' />" &
-                "<rect x='135' y='460' width='510' height='100' fill='%23f4aa64' />" &
-                "<rect x='135' y='560' width='590' height='100' fill='%23f58220' />" &
-                "<rect x='135' y='660' width='670' height='100' fill='%23ef1c3a' />" &
+            /* Rating bars */
+            "<rect x='135' y='60' width='190' height='100' fill='%2300c781' />" &
+            "<rect x='135' y='160' width='270' height='100' fill='%2324b954' />" &
+            "<rect x='135' y='260' width='350' height='100' fill='%2392d050' />" &
+            "<rect x='135' y='360' width='430' height='100' fill='%23ffe600' />" &
+            "<rect x='135' y='460' width='510' height='100' fill='%23f4aa64' />" &
+            "<rect x='135' y='560' width='590' height='100' fill='%23f58220' />" &
+            "<rect x='135' y='660' width='670' height='100' fill='%23ef1c3a' />" &
 
-                /* Score ranges */
-                "<text font-family='sans-serif' font-size='28' font-weight='bold' fill='%23000000'>" &
-                    "<tspan x='38' y='120'>92+</tspan>" &
-                    "<tspan x='38' y='220'>81-91</tspan>" &
-                    "<tspan x='38' y='320'>69-80</tspan>" &
-                    "<tspan x='38' y='420'>55-68</tspan>" &
-                    "<tspan x='38' y='520'>39-54</tspan>" &
-                    "<tspan x='38' y='620'>21-38</tspan>" &
-                    "<tspan x='38' y='720'>1-20</tspan>" &
-                "</text>" &
+            /* Score ranges */
+            "<text font-family='sans-serif' font-size='28' font-weight='bold' fill='%23000000'>" &
+                "<tspan x='38' y='120'>92+</tspan>" &
+                "<tspan x='38' y='220'>81-91</tspan>" &
+                "<tspan x='38' y='320'>69-80</tspan>" &
+                "<tspan x='38' y='420'>55-68</tspan>" &
+                "<tspan x='38' y='520'>39-54</tspan>" &
+                "<tspan x='38' y='620'>21-38</tspan>" &
+                "<tspan x='38' y='720'>1-20</tspan>" &
+            "</text>" &
 
-                /* Grade letters */
-                "<text font-family='sans-serif' font-size='82' font-weight='bold' fill='%23000000'>" &
-                    "<tspan x='220' y='140'>A</tspan>" &
-                    "<tspan x='300' y='240'>B</tspan>" &
-                    "<tspan x='380' y='340'>C</tspan>" &
-                    "<tspan x='460' y='440'>D</tspan>" &
-                    "<tspan x='540' y='540'>E</tspan>" &
-                    "<tspan x='620' y='640'>F</tspan>" &
-                    "<tspan x='700' y='740'>G</tspan>" &
-                "</text>" &
+            /* Grade letters */
+            "<text font-family='sans-serif' font-size='82' font-weight='bold' fill='%23000000'>" &
+                "<tspan x='220' y='140'>A</tspan>" &
+                "<tspan x='300' y='240'>B</tspan>" &
+                "<tspan x='380' y='340'>C</tspan>" &
+                "<tspan x='460' y='440'>D</tspan>" &
+                "<tspan x='540' y='540'>E</tspan>" &
+                "<tspan x='620' y='640'>F</tspan>" &
+                "<tspan x='700' y='740'>G</tspan>" &
+            "</text>" &
+
+            IF (
+                ISBLANK ( score ),
+                "",
 
                 /* Marker */
                 "<polygon points='860,410 900,370 1040,370 1040,450 900,450' fill='" &
@@ -111,8 +112,8 @@ createOrReplace
                     FORMAT ( MarkerY + 10, "0" ) &
                     "' text-anchor='middle' font-family='sans-serif' font-size='36' font-weight='bold' fill='%23000000'>" &
                     LabelText &
-                "</text>" &
+                "</text>"
+            ) &
 
-            "</svg>"
-        )
+        "</svg>"
     ```

@@ -35,7 +35,7 @@ createOrReplace
 				400
 			)
 			
-			    VAR MarkerFill =
+			VAR MarkerFill =
 			    SWITCH (
 			        Rating,
 			        "A+", "white",
@@ -59,44 +59,45 @@ createOrReplace
 			    FORMAT ( ScoreRounded, "0" ) & " " & Rating
 			
 			RETURN
-			    IF (
-			        ISBLANK ( score ),
-			        BLANK (),
-			        "data:image/svg+xml;utf8," &
-			        "<svg width='615' height='426' viewBox='0 0 615 426' xmlns='http://www.w3.org/2000/svg'>" &
-			            "<line x1='0' y1='65' x2='415' y2='65' stroke='lightblue' stroke-width='4' />" &
-			            "<text x='425' y='72' font-family='sans-serif' font-size='16' font-weight='bold' fill='%230b0c0c'>Net zero CO2</text>" &
+			    "data:image/svg+xml;utf8," &
+			    "<svg width='615' height='426' viewBox='0 0 615 426' xmlns='http://www.w3.org/2000/svg'>" &
+			        "<line x1='0' y1='65' x2='415' y2='65' stroke='lightblue' stroke-width='4' />" &
+			        "<text x='425' y='72' font-family='sans-serif' font-size='16' font-weight='bold' fill='%230b0c0c'>Net zero CO2</text>" &
 			
-			            "<rect width='175' height='50' x='4' y='5' fill='white' stroke='%2300C781' stroke-width='5' />" &
-			            "<rect width='205' height='50' x='0' y='75' fill='%2300C781' />" &
-			            "<rect width='235' height='50' x='0' y='125' fill='%2319b459' />" &
-			            "<rect width='265' height='50' x='0' y='175' fill='%238dce46' />" &
-			            "<rect width='295' height='50' x='0' y='225' fill='%23ffd500' />" &
-			            "<rect width='325' height='50' x='0' y='275' fill='%23fcaa65' />" &
-			            "<rect width='355' height='50' x='0' y='325' fill='%23ef8023' />" &
-			            "<rect width='385' height='50' x='0' y='375' fill='%23e9153b' />" &
+			        "<rect width='175' height='50' x='4' y='5' fill='white' stroke='%2300C781' stroke-width='5' />" &
+			        "<rect width='205' height='50' x='0' y='75' fill='%2300C781' />" &
+			        "<rect width='235' height='50' x='0' y='125' fill='%2319b459' />" &
+			        "<rect width='265' height='50' x='0' y='175' fill='%238dce46' />" &
+			        "<rect width='295' height='50' x='0' y='225' fill='%23ffd500' />" &
+			        "<rect width='325' height='50' x='0' y='275' fill='%23fcaa65' />" &
+			        "<rect width='355' height='50' x='0' y='325' fill='%23ef8023' />" &
+			        "<rect width='385' height='50' x='0' y='375' fill='%23e9153b' />" &
 			
-			            "<text font-family='sans-serif' font-size='16' font-weight='bold' fill='%230b0c0c'>" &
-			                "<tspan x='12' y='35'>Under 0</tspan>" &
-			                "<tspan x='12' y='105'>0-25</tspan>" &
-			                "<tspan x='12' y='155'>26-50</tspan>" &
-			                "<tspan x='12' y='205'>51-75</tspan>" &
-			                "<tspan x='12' y='255'>76-100</tspan>" &
-			                "<tspan x='12' y='305'>101-125</tspan>" &
-			                "<tspan x='12' y='355'>126-150</tspan>" &
-			                "<tspan x='12' y='405'>Over 150</tspan>" &
-			            "</text>" &
+			        "<text font-family='sans-serif' font-size='16' font-weight='bold' fill='%230b0c0c'>" &
+			            "<tspan x='12' y='35'>Under 0</tspan>" &
+			            "<tspan x='12' y='105'>0-25</tspan>" &
+			            "<tspan x='12' y='155'>26-50</tspan>" &
+			            "<tspan x='12' y='205'>51-75</tspan>" &
+			            "<tspan x='12' y='255'>76-100</tspan>" &
+			            "<tspan x='12' y='305'>101-125</tspan>" &
+			            "<tspan x='12' y='355'>126-150</tspan>" &
+			            "<tspan x='12' y='405'>Over 150</tspan>" &
+			        "</text>" &
 			
-			            "<text font-family='sans-serif' font-size='40' font-weight='bold' fill='%230b0c0c'>" &
-			                "<tspan x='115' y='44'>A+</tspan>" &
-			                "<tspan x='157' y='114'>A</tspan>" &
-			                "<tspan x='187' y='164'>B</tspan>" &
-			                "<tspan x='217' y='214'>C</tspan>" &
-			                "<tspan x='247' y='264'>D</tspan>" &
-			                "<tspan x='277' y='314'>E</tspan>" &
-			                "<tspan x='307' y='364'>F</tspan>" &
-			                "<tspan x='337' y='414'>G</tspan>" &
-			            "</text>" &
+			        "<text font-family='sans-serif' font-size='40' font-weight='bold' fill='%230b0c0c'>" &
+			            "<tspan x='115' y='44'>A+</tspan>" &
+			            "<tspan x='157' y='114'>A</tspan>" &
+			            "<tspan x='187' y='164'>B</tspan>" &
+			            "<tspan x='217' y='214'>C</tspan>" &
+			            "<tspan x='247' y='264'>D</tspan>" &
+			            "<tspan x='277' y='314'>E</tspan>" &
+			            "<tspan x='307' y='364'>F</tspan>" &
+			            "<tspan x='337' y='414'>G</tspan>" &
+			        "</text>" &
+			
+			        IF (
+			            ISBLANK ( score ),
+			            "",
 			
 			            "<polygon points='415,250 440,270 515,270 515,230 440,230 415,250' fill='" &
 			                MarkerFill &
@@ -110,7 +111,7 @@ createOrReplace
 			                FORMAT ( MarkerY + 6, "0" ) &
 			                "' text-anchor='end' font-family='sans-serif' font-size='16' font-weight='bold' fill='%230b0c0c'>" &
 			                LabelText &
-			            "</text>" &
-			        "</svg>"
-			    )
-				
+			            "</text>"
+			        ) &
+			
+			    "</svg>"
